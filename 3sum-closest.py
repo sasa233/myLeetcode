@@ -17,26 +17,28 @@ class Solution:
         :type target: int
         :rtype: int
         """
-        nums, i, min_diff, sum = sorted(nums), 0, float("inf"), float("inf")
+        nums, i, min_diff, result = sorted(nums), 0, float("inf"), float("inf")
 
         while i < len(nums) - 2:
             if i == 0 or nums[i] != nums[i - 1]:
                 j, k = i + 1, len(nums) - 1
-                diff = nums[i] + nums[j] + nums[k] - target
-                if abs(diff) < min_diff:
-                    min_diff = abs(diff)
-                    sum = nums[i] + nums[j] + nums[k]
-                if diff < 0:
-                    j += 1
-                elif diff > 0:
-                    k -= 1
-                else:
-                    return target
+                while j < k:
+                    diff = nums[i] + nums[j] + nums[k] - target
+                    if abs(diff) < min_diff:
+                        min_diff = abs(diff)
+                        result = nums[i] + nums[j] + nums[k]
+                    if diff < 0:
+                        j += 1
+                    elif diff > 0:
+                        k -= 1
+                    else:
+                        return target
             i += 1
 
-        return sum
+        return result
+
 
 so = Solution()
-print(so.threeSumClosest([-1, 2, 1, -4], 1))
+print(so.threeSumClosest([0,2,1,-3], 1))
 
 
