@@ -18,6 +18,7 @@ class Solution:
         :rtype: int
         """
         nums, i, min_diff, sum = sorted(nums), 0, float("inf"), float("inf")
+
         while i < len(nums) - 2:
             if i == 0 or nums[i] != nums[i - 1]:
                 j, k = i + 1, len(nums) - 1
@@ -32,6 +33,7 @@ class Solution:
                 else:
                     return target
             i += 1
+
         return sum
 
 so = Solution()
