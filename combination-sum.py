@@ -66,6 +66,7 @@ class Solution:
             # for num in candidates[start:]:
             #     self.combinationSumRecu1(candidates, target - num, results, cur + [num], start)
             #     start += 1
+            # for循环这段代码速度更慢，怀疑是因为candidates[start:]的原因
 
 
 print(Solution().combinationSum([2,3,5], 8))
